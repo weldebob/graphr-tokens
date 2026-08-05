@@ -1,0 +1,76 @@
+/* ============================================================================
+   Bob Design Language v2.0-C "Cabinet" — token layer
+   Source of truth: "Bob Style Guide v2.0-C Cabinet (standalone).html"
+   One paper, one glass. Cream speaks. Glass reports.
+
+   RULE: nothing in this repo may declare a colour. Use these tokens only.
+   If you are choosing a colour, you are off-spec.
+   ========================================================================= */
+
+:root {
+  /* --- The four that carry the identity ------------------------------- */
+  --spruce:            #3D6B64;  /* structure + the settled register. PAPER ONLY. */
+  --clay-deep:         #9A4527;  /* the ONLY accent that acts. fills, links, urgent. */
+  --clay:              #BF5B3B;  /* display 24px+, borders, rules. NEVER small light text. */
+  --phosphor:          #6FE3C0;  /* live figures. GLASS ONLY. */
+
+  /* --- The paper: cream ------------------------------------------------ */
+  --cream:             #F6F0E1;  /* ground */
+  --cream-card:        #FFFDF8;  /* raised surface */
+  --ink:               #262219;  /* body text */
+  --secondary:         #6B6353;  /* supporting text */
+  --label:             #4E6E67;  /* THE label voice on paper — all grounds */
+  --line:              #E3DCCC;  /* hairline */
+  --divider:           #EFE9DB;
+  --settled:           #E4EDE8;  /* filed / agreed — solid border */
+  --settled-line:      #C2D2CC;
+  --unconfirmed:       #FBF3E4;  /* not yet real — dashed border */
+  --unconfirmed-line:  #D9B98A;
+  --spruce-deep:       #23403C;
+
+  /* --- The glass: spruce at depth -------------------------------------- */
+  --screen:            #0E1A18;  /* ground. inset, never floating. */
+  --screen-raised:     #152723;  /* rows, cells, meter tracks */
+  --screen-line:       #2C4A44;  /* inset dividers, never full-bleed */
+  --phosphor-dim:      #9FC4BB;  /* label voice + secondary figures on glass */
+  --clay-glow:         #EE8A62;  /* urgent text + links on glass */
+
+  /* --- Type ------------------------------------------------------------ */
+  --font-display: 'Newsreader', Georgia, serif;      /* headlines + human moments */
+  --font-ui:      'Figtree', system-ui, sans-serif;  /* everything functional */
+  --font-readout: ui-monospace, SFMono-Regular, Menlo, monospace; /* GLASS ONLY */
+
+  --label-size:   10px;   /* floor. never lower. */
+  --ui-size-min:  12px;   /* floor. never lower. */
+  --label-track:  0.18em; /* range 0.14–0.22em */
+
+  /* --- Shape ----------------------------------------------------------- */
+  --radius:       2px;    /* range 0–4px. the rounded floating card is retired. */
+  --hit-target:   44px;
+  --measure:      620px;  /* prose measure, range 580–640px */
+  --shadow:       none;   /* there are no soft shadows in this system. */
+}
+
+/* ---------------------------------------------------------------------------
+   BANNED — present so a linter and a reading agent both catch it.
+   #6366F1  bright indigo — the default accent of the category we are leaving.
+   any bright teal-cyan — same reason.
+   --spruce on --screen  (2.3:1 smudge). On glass, spruce's role passes to phosphor.
+   --phosphor / --phosphor-dim on paper (1.4:1 / 1.8:1 — reads as highlighter).
+   --clay carrying light text at any size. Every fill at UI size is --clay-deep.
+   serif prose on glass. mono anywhere but glass. gradients. emoji.
+   ------------------------------------------------------------------------ */
+
+/* --- The cabinet: four zones, in this order, always ---------------------- */
+/* marquee (glass) · body (cream) · screen (glass) · base (glass)            */
+/* A view with two screens has no discipline. A view with none is missing    */
+/* the signature.                                                            */
+
+.marquee { background: var(--screen); color: var(--phosphor-dim); }
+.body    { background: var(--cream);  color: var(--ink); }
+.screen  { background: var(--screen); color: var(--phosphor); }
+.base    { background: var(--screen); }
+
+/* The verdict under a meter is ALWAYS Newsreader italic on paper.
+   Figures report; sentences interpret. */
+.verdict { font-family: var(--font-display); font-style: italic; color: var(--spruce); }

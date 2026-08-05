@@ -1,0 +1,27 @@
+/* label — the label voice. SURFACE: both.
+ * Figtree 700, uppercase, 10px floor, 0.14–0.22em.
+ * Names a thing: section, provenance, state. Replaced mono in v2.0 —
+ * uppercase letterspaced mono was the strongest tell shared with the category.
+ * A label is never a quantity. If it counts something, it is a .readout. */
+
+.label {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: var(--label-size);          /* 10px floor — never lower */
+  letter-spacing: var(--label-track);
+  text-transform: uppercase;
+  color: var(--label);                   /* clears AA on cream, card and the
+                                            settled tint alike — one paper token,
+                                            all grounds */
+}
+
+/* On glass the label voice passes to phosphor-dim. Spruce does not survive here. */
+.screen .label,
+.marquee .label,
+.base .label { color: var(--phosphor-dim); }
+
+/* Urgent. Clay-deep on paper, clay-glow on glass. Not "important" — urgent. */
+.label--urgent { color: var(--clay-deep); }
+.screen .label--urgent,
+.marquee .label--urgent,
+.base .label--urgent { color: var(--clay-glow); }

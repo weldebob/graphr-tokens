@@ -1,0 +1,19 @@
+{
+  "name": "graphr-tokens",
+  "version": "2.0.0-c.0",
+  "description": "Graphr design system — Bob design language v2.0-C \"Cabinet\". One paper, one glass.",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "tailwind-preset.js",
+  "exports": {
+    "./tokens.css": "./tokens.css",
+    "./tailwind-preset": "./tailwind-preset.js",
+    "./primitives/*": "./primitives/*"
+  },
+  "files": ["tokens.css", "tailwind-preset.js", "primitives", "README.md"],
+  "scripts": {
+    "check:contrast": "python3 check_contrast.py",
+    "check:tokens": "./check-tokens.sh .",
+    "check": "npm run check:contrast && npm run check:tokens"
+  }
+}

@@ -1,0 +1,23 @@
+/* readout — the readout voice. SURFACE: GLASS ONLY.
+ * System mono, tabular, 10px floor.
+ * Reports a QUANTITY (09/11 · 14 · 6.4 yr · €1,240) and earns its place only
+ * by aligning digits. Never a label, never a caption, never on paper.
+ * The sentence that interprets it is Newsreader italic on paper — see .verdict. */
+
+.readout {
+  font-family: var(--font-readout);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--label-size);          /* 10px floor — never lower */
+  color: var(--phosphor);
+  background: transparent;
+}
+
+/* Secondary figures step down to phosphor-dim, not to a smaller size. */
+.readout--secondary { color: var(--phosphor-dim); }
+
+/* The big figure on a screen. Still mono, still tabular, still glass. */
+.readout--display {
+  font-size: 32px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
