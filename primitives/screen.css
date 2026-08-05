@@ -1,0 +1,20 @@
+/* screen — zone 3 of the cabinet: the figures. SURFACE: glass.
+ * Exactly one per view. The inset panel where every quantity reports — phosphor
+ * readouts on the screen ground, secondary figures stepping to phosphor-dim.
+ * The ground and phosphor text come from the .screen zone rule in tokens.css;
+ * this file gives it its inset edge. Inset by a hairline, never floating: no
+ * shadow, hard edges. */
+
+.screen {
+  padding: 1.25rem;
+  border: 1px solid var(--screen-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);             /* none — inset, never floating */
+}
+
+/* A row or cell inside the screen steps up to screen-raised, divided by an
+   inset hairline that never reaches the edge. */
+.screen__row {
+  background: var(--screen-raised);
+  border-bottom: 1px solid var(--screen-line);
+}

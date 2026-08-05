@@ -1,0 +1,35 @@
+/* status-badge — names a state. SURFACE: both.
+ * Label voice naming provenance or lifecycle (FILED · DORMANT · PRIVATE BETA).
+ * A badge is never a quantity — a count is a .readout on the glass. On paper it
+ * is the label token, urgent stepping to the accent that acts; on glass it
+ * passes to phosphor-dim, urgent to clay-glow, exactly like .label. */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.25em 0.6em;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: var(--label-size);          /* 10px floor — never lower */
+  letter-spacing: var(--label-track);
+  text-transform: uppercase;
+  color: var(--label);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* Provenance tints — solid when settled, dashed when unconfirmed. */
+.status-badge--settled     { background: var(--settled);     border-color: var(--settled-line); }
+.status-badge--unconfirmed { background: var(--unconfirmed); border-style: dashed; border-color: var(--unconfirmed-line); }
+
+/* Urgent — the accent that acts. Not "important" — urgent. */
+.status-badge--urgent { color: var(--clay-deep); border-color: var(--clay-deep); }
+
+/* On glass the label voice passes to phosphor-dim; urgent to clay-glow. */
+.screen .status-badge,
+.marquee .status-badge,
+.base .status-badge { color: var(--phosphor-dim); border-color: var(--screen-line); background: transparent; }
+.screen .status-badge--urgent,
+.marquee .status-badge--urgent,
+.base .status-badge--urgent { color: var(--clay-glow); border-color: var(--clay-glow); }

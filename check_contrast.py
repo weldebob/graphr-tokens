@@ -62,6 +62,13 @@ CHECKS = [
     ("clay-glow",    "screen",         "clay-glow on glass",               7.2, True),
     ("cream",        "screen",         "cream on glass",                  15.7, True),
 
+    # Added by primitives/ — pairs the components actually rely on.
+    ("ink",          "cream-card",     "ink on card (card body)",         None, True),
+    ("ink",          "settled",        "ink on settled tint (card)",      None, True),
+    ("ink",          "unconfirmed",    "ink on unconfirmed tint (card)",  None, True),
+    ("label",        "unconfirmed",    "label on unconfirmed (badge)",    None, True),
+    ("phosphor",     "screen-raised",  "phosphor on track (meter fill)",  None, True),
+
     # Must FAIL. These encode the absolute rules; the numbers are the assertion.
     ("phosphor",     "cream",  "phosphor on cream            [BANNED]",    1.4, False),
     # erratum: guide says 1.8, true value 1.67. Rule unchanged.

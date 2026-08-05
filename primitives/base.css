@@ -1,0 +1,14 @@
+/* base — zone 4 of the cabinet: the one action. SURFACE: glass.
+ * The bottom band. The ground comes from the .base zone rule in tokens.css; this
+ * file lays it out. Holds a single primary button and, optionally, one
+ * label-voice note beside it. One action — never a toolbar. */
+
+.base {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--hit-target);
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--screen-line);
+}
