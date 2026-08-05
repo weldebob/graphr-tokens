@@ -1,0 +1,28 @@
+/* card — a raised surface on paper. SURFACE: paper.
+ * The raised cream card holds prose and labels. Two provenance variants borrow
+ * the settled (filed / agreed — solid border) and unconfirmed (not yet real —
+ * dashed border) tints. Radius 0–4px, no shadow: the hairline and the tint do
+ * the containing, never a float. Never appears on glass — figures live on the
+ * screen, not inside a card. */
+
+.card {
+  background: var(--cream-card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);             /* none — the rounded float is retired */
+  padding: 1.25rem;
+}
+
+/* Filed / agreed — the settled register, a solid tinted border. */
+.card--settled {
+  background: var(--settled);
+  border-color: var(--settled-line);
+}
+
+/* Not yet real — dashed, the unconfirmed tint. Never a solid commitment. */
+.card--unconfirmed {
+  background: var(--unconfirmed);
+  border-style: dashed;
+  border-color: var(--unconfirmed-line);
+}

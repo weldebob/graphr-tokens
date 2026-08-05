@@ -1,0 +1,13 @@
+/* marquee — zone 1 of the cabinet: where you are. SURFACE: glass.
+ * The top band. The ground and label colour come from the .marquee zone rule in
+ * tokens.css; this file only lays the band out. Holds a label-voice location and
+ * at most one urgent count as a readout — sentences are never here. */
+
+.marquee {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--hit-target);
+  padding: 0 1.25rem;
+}

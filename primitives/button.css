@@ -1,0 +1,47 @@
+/* button — the action. SURFACE: both.
+ * The only accent that acts is --clay-deep, so the primary button is a
+ * clay-deep fill with card-white text (the checked fill pair). --spruce is
+ * NEVER a button — it is structure and label ground. The accent carries the
+ * same on both surfaces, so the primary fill is unchanged on glass.
+ * Label voice: Figtree 700 uppercase, 10px floor. Hit target 44px. */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--hit-target);
+  padding: 0 1.25rem;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: var(--label-size);          /* 10px floor — never lower */
+  letter-spacing: var(--label-track);
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);             /* none — there are no soft shadows */
+  cursor: pointer;
+}
+
+/* Primary — the accent that acts. Card-white on clay-deep, a checked pair. */
+.button--primary {
+  background: var(--clay-deep);
+  color: var(--cream-card);
+  border-color: var(--clay-deep);
+}
+
+/* Secondary — a hairline ghost. Text is the accent; the fill stays the paper.
+   Lives in the cream body, so its pair is clay-deep on cream. */
+.button--ghost {
+  background: transparent;
+  color: var(--clay-deep);
+  border-color: var(--line);
+}
+
+/* On glass the ghost's text passes to clay-glow; the accent that acts does not
+   read as a link at spruce depth here. The primary fill is unchanged. */
+.screen .button--ghost,
+.marquee .button--ghost,
+.base .button--ghost {
+  color: var(--clay-glow);
+  border-color: var(--screen-line);
+}
