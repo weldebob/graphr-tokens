@@ -1,0 +1,26 @@
+name: checks
+
+# The design system defends itself here: no push or PR can go green without
+# clearing the contrast table and proving there are no stray hex literals.
+# Both checks are Python/bash — no npm install needed.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  spec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: contrast — every pair against the guide's §03 table + AA floor
+        run: python3 check_contrast.py
+
+      - name: tokens — no hex literal outside tokens.css
+        run: bash check-tokens.sh .
