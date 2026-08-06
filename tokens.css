@@ -42,9 +42,12 @@
   --font-ui:      'Figtree', system-ui, sans-serif;  /* everything functional */
   --font-readout: ui-monospace, SFMono-Regular, Menlo, monospace; /* GLASS ONLY */
 
-  --label-size:   10px;   /* floor. never lower. */
+  /* The label voice, at the values the canonical artifact actually sets. 10px
+     remains the absolute floor; 10.5 is where the artifact sits, and matching it
+     is what lets a consuming page drop its own copy of this rule. */
+  --label-size:   10.5px; /* 10px is the floor. never lower. */
   --ui-size-min:  12px;   /* floor. never lower. */
-  --label-track:  0.18em; /* range 0.14–0.22em */
+  --label-track:  0.16em; /* range 0.14–0.22em */
 
   /* --- Shape ----------------------------------------------------------- */
   /* The radius is two-tier BY SURFACE, and the tiers are not interchangeable:
