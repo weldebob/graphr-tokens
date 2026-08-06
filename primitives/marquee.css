@@ -42,3 +42,6 @@
 }
 @keyframes cursor-blink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+
+/* Any marquee that carries a site nav lays it out the same way. */
+.marquee nav { display: flex; gap: 20px; flex-wrap: wrap; }
