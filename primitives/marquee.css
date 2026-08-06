@@ -1,13 +1,44 @@
 /* marquee — zone 1 of the cabinet: where you are. SURFACE: glass.
- * The top band. The ground and label colour come from the .marquee zone rule in
- * tokens.css; this file only lays the band out. Holds a label-voice location and
- * at most one urgent count as a readout — sentences are never here. */
+ * Requires band.css.
+ *
+ * Full width, flush to the top of the window, and STICKY — the marquee is the
+ * one part of the cabinet that stays with you. It holds a label-voice location
+ * and at most one live figure. Sentences are never here.
+ *
+ * The blinking cursor is the system's one piece of motion, and it stops for
+ * anyone who has asked motion to stop. */
 
 .marquee {
+  background: var(--screen);
+  border-bottom: 1px solid var(--screen-line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.marquee__in,
+.marquee > .in {
+  max-width: var(--rail);
+  margin: 0 auto;
+  padding: 13px 20px;
   display: flex;
   align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 1rem;
-  min-height: var(--hit-target);
-  padding: 0 1.25rem;
 }
+
+.marquee .label { color: var(--phosphor-dim); }
+
+/* Where you are — the cursor, then the place. */
+.marquee__where { display: flex; align-items: center; gap: 9px; }
+
+.cursor {
+  width: 8px;
+  height: 15px;
+  background: var(--phosphor);
+  display: inline-block;
+  animation: cursor-blink 1.1s steps(1) infinite;
+}
+@keyframes cursor-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }

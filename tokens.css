@@ -11,6 +11,8 @@
   /* --- The four that carry the identity ------------------------------- */
   --spruce:            #3D6B64;  /* structure + the settled register. PAPER ONLY. */
   --clay-deep:         #9A4527;  /* the ONLY accent that acts. fills, links, urgent. */
+  --clay-deepest:      #873C21;  /* the pressed/hover state of an acting fill. Only ever
+                                    under --cream-card text; never a resting fill. */
   --clay:              #BF5B3B;  /* display 24px+, borders, rules. NEVER small light text. */
   --phosphor:          #6FE3C0;  /* live figures. GLASS ONLY. */
 
@@ -45,9 +47,15 @@
   --label-track:  0.18em; /* range 0.14–0.22em */
 
   /* --- Shape ----------------------------------------------------------- */
-  --radius:       2px;    /* range 0–4px. the rounded floating card is retired. */
+  /* The radius is two-tier BY SURFACE, and the tiers are not interchangeable:
+     glass is the tighter one (cells, gauges, chips, steppers), paper the softer
+     (cards, buttons, inputs, drawers). Both inside the 0–4px range; the rounded
+     floating card is still retired. */
+  --radius:       2px;    /* GLASS. */
+  --radius-paper: 3px;    /* PAPER. */
   --hit-target:   44px;
   --measure:      620px;  /* prose measure, range 580–640px */
+  --rail:         980px;  /* the inner rail every full-bleed band centres on */
   --shadow:       none;   /* there are no soft shadows in this system. */
 }
 

@@ -1,14 +1,36 @@
 /* base — zone 4 of the cabinet: the one action. SURFACE: glass.
- * The bottom band. The ground comes from the .base zone rule in tokens.css; this
- * file lays it out. Holds a single primary button and, optionally, one
- * label-voice note beside it. One action — never a toolbar. */
+ * Requires band.css.
+ *
+ * The bottom band, full width. One primary action, optionally a ghost beside it,
+ * and a label-voice note explaining what the action costs you (usually nothing).
+ * One action — never a toolbar. If a view needs three, the view is doing three
+ * jobs.
+ *
+ * On a short page the page shell should stretch so this still anchors the bottom
+ * of the window rather than floating mid-screen. */
 
 .base {
+  background: var(--screen);
+  border-top: 1px solid var(--screen-line);
+}
+
+.base__in,
+.base > .in {
+  max-width: var(--rail);
+  margin: 0 auto;
+  padding: 26px 20px;
   display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  min-height: var(--hit-target);
-  padding: 0.75rem 1.25rem;
-  border-top: 1px solid var(--screen-line);
+}
+
+.base .label { color: var(--phosphor-dim); }
+
+.base__note {
+  color: var(--phosphor-dim);
+  font-size: 13px;
+  flex: 1;
+  min-width: 180px;
 }

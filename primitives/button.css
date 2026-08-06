@@ -1,47 +1,56 @@
 /* button — the action. SURFACE: both.
- * The only accent that acts is --clay-deep, so the primary button is a
- * clay-deep fill with card-white text (the checked fill pair). --spruce is
- * NEVER a button — it is structure and label ground. The accent carries the
- * same on both surfaces, so the primary fill is unchanged on glass.
- * Label voice: Figtree 700 uppercase, 10px floor. Hit target 44px. */
+ *
+ * Derived from the canonical artifact (Three Meters v10 `.btn`). NOTE the voice:
+ * a button is the UI voice at reading size — 14px, sentence case — NOT the label
+ * voice. Uppercase letterspaced 10px is for naming a thing, not for asking
+ * someone to do one.
+ *
+ * --clay-deep is the one accent that acts, and the primary button is the one
+ * clay thing on a view. --spruce is NEVER a button. */
 
 .button {
+  font: inherit;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 650;
+  min-height: var(--hit-target);
+  padding: 12px 20px;
+  border: 1px solid var(--clay-deep);
+  border-radius: var(--radius-paper);
+  background: var(--clay-deep);
+  color: var(--cream-card);
+  box-shadow: var(--shadow);             /* none — there are no soft shadows */
+  cursor: pointer;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: var(--hit-target);
-  padding: 0 1.25rem;
-  font-family: var(--font-ui);
-  font-weight: 700;
-  font-size: var(--label-size);          /* 10px floor — never lower */
-  letter-spacing: var(--label-track);
-  text-transform: uppercase;
-  border: 1px solid transparent;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);             /* none — there are no soft shadows */
-  cursor: pointer;
 }
 
-/* Primary — the accent that acts. Card-white on clay-deep, a checked pair. */
-.button--primary {
-  background: var(--clay-deep);
-  color: var(--cream-card);
-  border-color: var(--clay-deep);
-}
+/* The pressed/hover state of an acting fill — a token, not a filter. */
+.button:hover { background: var(--clay-deepest); border-color: var(--clay-deepest); }
 
-/* Secondary — a hairline ghost. Text is the accent; the fill stays the paper.
-   Lives in the cream body, so its pair is clay-deep on cream. */
+/* Ghost — the secondary action. On glass it is a hairline in the screen line,
+   lighting to phosphor on hover. */
 .button--ghost {
   background: transparent;
-  color: var(--clay-deep);
-  border-color: var(--line);
+  border-color: var(--screen-line);
+  color: var(--phosphor-dim);
+}
+.button--ghost:hover {
+  background: transparent;
+  border-color: var(--phosphor);
+  color: var(--phosphor);
 }
 
-/* On glass the ghost's text passes to clay-glow; the accent that acts does not
-   read as a link at spruce depth here. The primary fill is unchanged. */
-.screen .button--ghost,
-.marquee .button--ghost,
-.base .button--ghost {
-  color: var(--clay-glow);
-  border-color: var(--screen-line);
+/* On paper the ghost borrows the paper hairline and the accent for its text. */
+.body .button--ghost,
+.card .button--ghost {
+  border-color: var(--line);
+  color: var(--clay-deep);
+}
+.body .button--ghost:hover,
+.card .button--ghost:hover {
+  border-color: var(--clay-deep);
+  color: var(--clay-deep);
 }
