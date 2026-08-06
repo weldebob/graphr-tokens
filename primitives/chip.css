@@ -1,0 +1,38 @@
+/* chip — an inline figure, inset on glass. SURFACE: glass (inset into paper).
+ *
+ * Derived from the canonical artifact (v10 `.chip` in the agent rows, and
+ * `.brk .v` in the hypotheticals). This is the rule "every figure lives on
+ * glass" applied INSIDE a paper layout: rather than setting a number in ink on
+ * cream, you inset a small piece of screen and put the readout on it.
+ *
+ * The value is the readout voice; the suffix steps down to phosphor-dim. */
+
+.chip {
+  background: var(--screen);
+  border-radius: var(--radius);          /* glass tier */
+  padding: 9px 14px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  flex: none;
+  white-space: nowrap;
+}
+
+.chip__v {
+  font-family: var(--font-readout);
+  font-variant-numeric: tabular-nums;
+  color: var(--phosphor);
+  font-size: 15.5px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.chip__s {
+  font-family: var(--font-readout);
+  color: var(--phosphor-dim);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Urgent — the figure that moved the wrong way. */
+.chip--urgent .chip__s { color: var(--clay-glow); }

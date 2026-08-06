@@ -1,19 +1,54 @@
 /* screen — zone 3 of the cabinet: the figures. SURFACE: glass.
- * Exactly one per view. The inset panel where every quantity reports — phosphor
- * readouts on the screen ground, secondary figures stepping to phosphor-dim.
- * The ground and phosphor text come from the .screen zone rule in tokens.css;
- * this file gives it its inset edge. Inset by a hairline, never floating: no
- * shadow, hard edges. */
+ * Requires band.css.
+ *
+ * Exactly one per view. A view with two screens has no discipline; a view with
+ * none is missing the signature. Full-bleed like every band — the glass is inset
+ * into the page, never floating on it, so there is no border and no radius
+ * around the zone itself.
+ *
+ * Also carries the figure grid: cells divided by hairlines, each a readout over
+ * a label. That grid is the screen's furniture and belongs with it. */
 
-.screen {
-  padding: 1.25rem;
+.screen { background: var(--screen); color: var(--phosphor); }
+
+/* The figure grid — the gaps ARE the dividers, so one hairline colour shows
+   through between cells. */
+.screen__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--screen-line);
   border: 1px solid var(--screen-line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);             /* none — inset, never floating */
+  margin: 16px 0 0;
 }
 
-/* A row or cell inside the screen steps up to screen-raised, divided by an
-   inset hairline that never reaches the edge. */
+.screen__cell { background: var(--screen); padding: 15px 16px; }
+
+.screen__v {
+  font-family: var(--font-readout);
+  font-variant-numeric: tabular-nums;
+  color: var(--phosphor);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.screen__k {
+  margin-top: 7px;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: var(--label-size);
+  letter-spacing: var(--label-track);
+  text-transform: uppercase;
+  color: var(--phosphor-dim);
+}
+
+/* A figure that is real but not yet live — stated, and visibly stood down. */
+.screen__cell--dim { opacity: 0.72; }
+.screen__cell--dim .screen__v { color: var(--phosphor-dim); font-size: 17px; }
+
+/* A row or cell that steps up off the ground. */
 .screen__row {
   background: var(--screen-raised);
   border-bottom: 1px solid var(--screen-line);

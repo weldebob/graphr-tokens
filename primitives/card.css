@@ -1,18 +1,24 @@
 /* card — a raised surface on paper. SURFACE: paper.
- * The raised cream card holds prose and labels. Two provenance variants borrow
- * the settled (filed / agreed — solid border) and unconfirmed (not yet real —
- * dashed border) tints. Radius 0–4px, no shadow: the hairline and the tint do
- * the containing, never a float. Never appears on glass — figures live on the
- * screen, not inside a card. */
+ *
+ * Derived from the canonical artifact (v10 `.agent`, `.assume`, `details.rates`).
+ * Three registers, and the border tells you which: a plain hairline for an
+ * ordinary card, a SOLID tinted border for something settled, a DASHED amber one
+ * for something not yet real. Paper radius, no shadow — the hairline and the
+ * tint do the containing, never a float.
+ *
+ * Never appears on glass: figures live on the screen, not inside a card. */
 
 .card {
   background: var(--cream-card);
   color: var(--ink);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-paper);
   box-shadow: var(--shadow);             /* none — the rounded float is retired */
-  padding: 1.25rem;
+  padding: 20px 22px;
 }
+
+/* Open / focused — the card the reader is working in. */
+.card--open { border-color: var(--ink); position: relative; z-index: 2; }
 
 /* Filed / agreed — the settled register, a solid tinted border. */
 .card--settled {
@@ -20,9 +26,13 @@
   border-color: var(--settled-line);
 }
 
-/* Not yet real — dashed, the unconfirmed tint. Never a solid commitment. */
+/* Not yet real — dashed, the unconfirmed tint. Assumptions and hypotheticals
+   live here, and the dash is the tell. */
 .card--unconfirmed {
   background: var(--unconfirmed);
   border-style: dashed;
   border-color: var(--unconfirmed-line);
 }
+
+/* A card of cards: hairlines collapse so a stack reads as one object. */
+.card--stacked { margin-bottom: -1px; }

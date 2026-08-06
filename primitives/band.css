@@ -1,0 +1,36 @@
+/* band — the shared shell of every glass zone. SURFACE: glass.
+ *
+ * Derived from the canonical artifact (v10 `.band` / `.band .in`).
+ *
+ * THE CORRECTION THIS FILE CARRIES: a cabinet zone is full-bleed page furniture,
+ * not a padded box. The glass runs edge to edge and the CONTENT is centred on an
+ * inner rail (--rail). An earlier version of these primitives modelled each zone
+ * as a bordered, rounded, padded box; that is what "the glass is inset, never
+ * floating" rules out. No radius, no shadow, no outer margin.
+ *
+ * marquee.css, screen.css and base.css all build on this. */
+
+.band {
+  background: var(--screen);
+  color: var(--cream);
+}
+
+/* The inner rail. Every band centres its content on the same measure, which is
+   what makes the zones line up down the page. */
+.band__in,
+.band > .in {
+  max-width: var(--rail);
+  margin: 0 auto;
+  padding: 26px 20px;
+}
+
+/* On glass the label voice passes to phosphor-dim. */
+.band .label { color: var(--phosphor-dim); }
+
+/* A block within a band, divided by an inset hairline that never full-bleeds. */
+.band__blk {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--screen-line);
+}
+.band__blk:first-child { margin-top: 0; padding-top: 0; border-top: none; }

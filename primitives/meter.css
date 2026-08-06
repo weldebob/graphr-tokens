@@ -1,27 +1,53 @@
 /* meter — a quantity as a bar. SURFACE: GLASS ONLY.
- * For calculators: a track on the screen with a phosphor fill, its figure a
- * readout above it. Over threshold the fill steps to clay-glow. The sentence
- * that interprets the meter is Newsreader italic on paper — that is .verdict,
- * never on the glass. Compose the label above with .label (→ phosphor-dim here)
- * and the figure with .readout. */
+ *
+ * Derived from the canonical artifact (v10 `.gauge` and the share-row tracks).
+ * Two sizes: a thin track for comparing rows, and a tall gauge for capacity —
+ * the one that carries marks. A meter never appears on paper; the sentence that
+ * interprets it does, as .verdict.
+ *
+ * Fill is phosphor while the figure is fine and steps to clay-glow when it is
+ * not. That is the only colour decision in this component. */
 
-.meter {
-  display: block;
-  width: 100%;
-}
+.meter { display: block; width: 100%; }
 
 .meter__track {
-  height: 4px;
+  height: 12px;
   background: var(--screen-raised);
   border-radius: var(--radius);
   overflow: hidden;
 }
 
-/* The fill reports the quantity in live phosphor on the screen-raised track. */
 .meter__fill {
   height: 100%;
   background: var(--phosphor);
+  border-radius: var(--radius);
 }
 
-/* Over threshold — the fill carries urgency in the glass accent. */
+/* A secondary row steps down to phosphor-dim, so the leader still reads first. */
+.meter--secondary .meter__fill { background: var(--phosphor-dim); }
+
+/* Over the line. */
+.meter__fill.is-over,
 .meter--urgent .meter__fill { background: var(--clay-glow); }
+
+/* Gauge — the capacity meter: taller, bordered, and it carries marks. */
+.meter--gauge { position: relative; height: 34px; overflow: hidden; }
+.meter--gauge .meter__track {
+  height: 100%;
+  border: 1px solid var(--screen-line);
+}
+.meter--gauge .meter__fill { opacity: 0.9; border-radius: 0; }
+
+/* A threshold drawn on the gauge. The wall — the point where things stop — is
+   the urgent one and is drawn heavier. */
+.meter__mark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--phosphor-dim);
+}
+.meter__mark--wall { background: var(--clay-glow); width: 2px; }
+
+/* The scale under a gauge: label voice, ends apart. */
+.meter__keys { display: flex; justify-content: space-between; margin-top: 7px; }
