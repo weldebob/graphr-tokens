@@ -30,6 +30,13 @@
 /* The pressed/hover state of an acting fill — a token, not a filter. */
 .button:hover { background: var(--clay-deepest); border-color: var(--clay-deepest); }
 
+/* An anchor styled as a button is still a button. A page-level link colour —
+   e.g. `.base a { color: var(--clay-glow) }` — is more specific than `.button`
+   and will otherwise repaint the label, leaving clay-glow on clay-deep at
+   2.6:1. These selectors match that specificity so the fill keeps its text. */
+a.button { color: var(--cream-card); }
+a.button:hover { color: var(--cream-card); }
+
 /* Ghost — the secondary action. On glass it is a hairline in the screen line,
    lighting to phosphor on hover. */
 .button--ghost {
@@ -42,6 +49,8 @@
   border-color: var(--phosphor);
   color: var(--phosphor);
 }
+a.button--ghost { color: var(--phosphor-dim); }
+a.button--ghost:hover { color: var(--phosphor); }
 
 /* On paper the ghost borrows the paper hairline and the accent for its text. */
 .body .button--ghost,

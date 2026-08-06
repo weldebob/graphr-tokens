@@ -80,6 +80,10 @@ CHECKS = [
     ("clay",         "screen", "clay on glass                [BANNED]",    4.0, False),
     # erratum: guide says 2.3, true value 2.95. Rule unchanged.
     ("spruce",       "screen", "spruce on glass              [BANNED]",   2.95, False),
+    # A glass link colour must never repaint an acting fill: a page rule like
+    # `.base a {color: var(--clay-glow)}` out-specifies `.button` and lands
+    # clay-glow on clay-deep. Encoded so the failure is caught here, not by eye.
+    ("clay-glow",    "clay-deep", "clay-glow on clay-deep fill  [BANNED]", 2.60, False),
 ]
 
 BANNED_VALUES = {
