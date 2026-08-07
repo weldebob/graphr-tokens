@@ -25,3 +25,8 @@
 .screen .label--urgent,
 .marquee .label--urgent,
 .base .label--urgent { color: var(--clay-glow); }
+
+/* A label is a name, not a prose link — so an anchor wearing it carries no
+   underline. Lives here rather than in each consuming page, which is how the
+   hub and the tool ended up disagreeing about it. */
+a.label { text-decoration: none; }
