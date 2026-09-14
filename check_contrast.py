@@ -69,6 +69,8 @@ CHECKS = [
     ("ink",          "unconfirmed",    "ink on unconfirmed tint (card)",  None, True),
     ("label",        "unconfirmed",    "label on unconfirmed (badge)",    None, True),
     ("phosphor",     "screen-raised",  "phosphor on track (meter fill)",  None, True),
+    ("secondary",    "cream-card",     "secondary on card (field hint)",  None, True),
+    ("secondary",    "settled",        "secondary on settled (disabled)", None, True),
 
     # Must FAIL. These encode the absolute rules; the numbers are the assertion.
     ("phosphor",     "cream",  "phosphor on cream            [BANNED]",    1.4, False),
