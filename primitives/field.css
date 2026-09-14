@@ -1,0 +1,86 @@
+/* field — asking for a value. SURFACE: PAPER ONLY.
+ *
+ * Derived from the canonical artifact (v10 `.namein` and its slider labels) and
+ * from the second calculator's `.field` blocks. A field is three parts, and the
+ * middle one is the only one that is optional in reverse: you may drop the hint,
+ * never the label.
+ *
+ *   label   what the number is
+ *   control where you put it
+ *   hint    where the number comes from, or what it costs you to get wrong
+ *
+ * PAPER ONLY is not a style preference. The focus ring is --spruce, which is
+ * banned on glass (2.95:1), and the control's ground is --cream. A form on
+ * glass would need both replaced, so it would be a different component.
+ */
+
+/* A LABEL ON A FIELD IS NOT THE LABEL VOICE.
+ *
+ * Same trap as the button: uppercase/letterspaced/10.5px is for NAMING a region
+ * of the page. Asking a person for a value is the UI voice — 14px, sentence
+ * case, readable at a glance while their hands are on the keyboard. Use .label
+ * for the kicker ABOVE a group of fields; never for the fields themselves. */
+
+.field { margin-top: 16px; }
+.field:first-child { margin-top: 0; }
+
+.field > label {
+  display: block;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+
+/* The control is a WELL — you put something into it, so it reads inset against
+ * the card rather than raised off it. The artifact sets --cream inside a
+ * --cream-card surface; a white-on-white input is the one that looks wrong. */
+.field input[type='number'],
+.field input[type='text'],
+.field input[type='email'],
+.field select {
+  width: 100%;
+  font: inherit;
+  font-size: 15px;
+  padding: 10px 11px;
+  min-height: 44px;             /* touch target — the artifact's floor */
+  border: 1px solid var(--line);
+  border-radius: var(--radius-paper);
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* Quantities read as quantities, so a number field takes tabular figures and
+ * stops the digits dancing as you type. */
+.field input[type='number'] { font-variant-numeric: tabular-nums; }
+
+.field input:focus,
+.field select:focus {
+  outline: 2px solid var(--spruce);
+  outline-offset: -1px;
+}
+
+.field input:disabled,
+.field select:disabled {
+  color: var(--secondary);
+  background: var(--settled);
+}
+
+/* A field that is narrower than its container says so itself. */
+.field--narrow input,
+.field--narrow select { max-width: 320px; }
+
+/* The hint carries provenance — where a figure came from, and what it does not
+ * cover. It annotates rather than being read in sentences, so --secondary is
+ * the right voice here (see THE READING RULE). */
+.field .hint {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--secondary);
+  margin-top: 5px;
+}
+.field .hint a { color: var(--clay-deep); }
+
+/* A provenance badge sits at the end of the label, not on its own line. */
+.field > label .status-badge { margin-left: 7px; vertical-align: 1px; }

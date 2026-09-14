@@ -23,6 +23,7 @@ shape.
 | `readout.css` | glass | the readout voice — reports a quantity |
 | `button.css` | both | the action. **UI voice at 14px, sentence case** — not the label voice |
 | `seg.css` | paper | segmented control — how a closed question is asked |
+| `field.css` | paper | an open question — label, control, and where the figure came from |
 | `card.css` | paper | a raised surface; plain / settled / unconfirmed |
 | `chip.css` | glass | an inline figure, inset into a paper layout |
 | `status-badge.css` | both | names a state or provenance; never a quantity |
@@ -32,11 +33,16 @@ shape.
 | `screen.css` | glass | zone 3 · the figures, and the figure grid |
 | `base.css` | glass | zone 4 · the one action |
 
-## Two things that are easy to get wrong
+## Three things that are easy to get wrong
 
 **A button is not a label.** Uppercase, letterspaced, 10px is for *naming* a
 thing. Asking someone to *do* something is 14px sentence case. Getting this
 backwards makes every call to action look like a caption.
+
+**Nor is a field's label.** Same trap, same fix: `.field > label` is the UI
+voice at 14px sentence case, because a person reads it with their hands on the
+keyboard. `.label` belongs on the kicker *above* a group of fields — the thing
+that names the group — never on the questions inside it.
 
 **A zone is not a box.** `band` / `marquee` / `screen` / `base` are full-bleed
 page furniture: the glass runs edge to edge and the *content* is centred on
