@@ -20,6 +20,19 @@
 .marquee .label,
 .base .label { color: var(--phosphor-dim); }
 
+/* The section eyebrow — the label voice doing its largest job, naming the band
+ * a reader is entering. Spec §7 sets it at 11.5px / 0.18em, a step above the
+ * 10.5px the voice runs at everywhere else.
+ *
+ * It is a MODIFIER rather than a change to --label-size on purpose: that custom
+ * property also drives badges, the readout floor and the screen's cell keys, so
+ * moving it to 11.5 would quietly enlarge every figure on every glass zone in
+ * all three products. The eyebrow is a use of the voice, not the voice. */
+.label--eyebrow {
+  font-size: 11.5px;
+  letter-spacing: 0.18em;
+}
+
 /* Urgent. Clay-deep on paper, clay-glow on glass. Not "important" — urgent. */
 .label--urgent { color: var(--clay-deep); }
 .screen .label--urgent,
