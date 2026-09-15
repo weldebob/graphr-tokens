@@ -22,6 +22,16 @@
   --ink:               #262219;  /* body text */
   --secondary:         #6B6353;  /* supporting text */
   --label:             #4E6E67;  /* THE label voice on paper — all grounds */
+
+  /* The ink ramp between --ink and --secondary. Graphr system spec §7 needs
+     three steps that did not exist here, and their absence is what pushed decks
+     and summaries onto --secondary — which is the one paper ink that must never
+     carry a sentence. Each still clears AA with room to spare on all three
+     grounds; see check_contrast.py. */
+  --ink-body:          #3A352C;  /* summaries and card body */
+  --ink-deck:          #453F31;  /* decks and subtitles — NOT --secondary */
+  --ink-hint:          #4A4437;  /* field hints and disclaimers */
+
   --line:              #E3DCCC;  /* hairline */
   --divider:           #EFE9DB;
   --settled:           #E4EDE8;  /* filed / agreed — solid border */
@@ -40,7 +50,12 @@
   /* --- Type ------------------------------------------------------------ */
   --font-display: 'Newsreader', Georgia, serif;      /* headlines + human moments */
   --font-ui:      'Figtree', system-ui, sans-serif;  /* everything functional */
-  --font-readout: ui-monospace, SFMono-Regular, Menlo, monospace; /* GLASS ONLY */
+  /* GLASS ONLY. The face is pinned, not left to the platform: a system stack is
+     a fair trade for body text and a bad one for display figures, because the
+     figure IS the graphic and it was rendering as a different typeface for
+     every visitor. Decided 15 Sep 2026 by Bob — Graphr system spec §7, v1.1.
+     The system stack stays as the fallback tail. */
+  --font-readout: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* The label voice, at the values the canonical artifact actually sets. 10px
      remains the absolute floor; 10.5 is where the artifact sits, and matching it

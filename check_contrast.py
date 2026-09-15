@@ -63,6 +63,17 @@ CHECKS = [
     ("clay-glow",    "screen",         "clay-glow on glass",               7.2, True),
     ("cream",        "screen",         "cream on glass",                  15.7, True),
 
+    # The ink ramp (spec §7). The guide quotes deck 7.9:1, body 9.6:1 and hint
+    # 7.1:1; all three measure HIGHER here, so the guide is conservative and
+    # every pair clears with room. Carrying None rather than the guide's number
+    # keeps this table honest about what it actually asserts.
+    ("ink-body",     "cream",          "ink-body on cream",               None, True),
+    ("ink-body",     "cream-card",     "ink-body on card",                None, True),
+    ("ink-deck",     "cream",          "ink-deck on cream (deck)",        None, True),
+    ("ink-deck",     "cream-card",     "ink-deck on card (deck)",         None, True),
+    ("ink-hint",     "cream",          "ink-hint on cream",               None, True),
+    ("ink-hint",     "cream-card",     "ink-hint on card (field hint)",   None, True),
+
     # Added by primitives/ — pairs the components actually rely on.
     ("ink",          "cream-card",     "ink on card (card body)",         None, True),
     ("ink",          "settled",        "ink on settled tint (card)",      None, True),
