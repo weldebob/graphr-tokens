@@ -37,6 +37,41 @@
 a.button { color: var(--cream-card); }
 a.button:hover { color: var(--cream-card); }
 
+/* ON GLASS THE PRIMARY ACTION IS PHOSPHOR.
+ *
+ * Graphr system spec § 6: clay is attention, spruce is action, and phosphor is
+ * spruce's counterpart on glass. A clay fill in a glass zone says "alarm" in the
+ * one place the view is asking someone to proceed — and it puts the accent that
+ * marks a problem on the control that resolves one.
+ *
+ * NOTE THE LIMIT. This changes the button on GLASS only. Spec § 6 also makes the
+ * paper button spruce, which contradicts what this file says two comments up —
+ * that clay-deep is the one accent that acts and spruce is never a button. That
+ * is a real disagreement between the spec and this layer, it repaints a primary
+ * action in all three products, and it is Bob's to settle rather than a session's
+ * to assume. On glass there is no such conflict: the spec and the site handoff
+ * agree, and the clay fill was never right there. */
+.screen .button:not(.button--ghost),
+.marquee .button:not(.button--ghost),
+.base .button:not(.button--ghost) {
+  background: var(--phosphor);
+  border-color: var(--phosphor);
+  color: var(--screen);
+}
+.screen a.button:not(.button--ghost),
+.marquee a.button:not(.button--ghost),
+.base a.button:not(.button--ghost) { color: var(--screen); }
+
+.screen .button:not(.button--ghost):hover,
+.marquee .button:not(.button--ghost):hover,
+.base .button:not(.button--ghost):hover {
+  background: var(--phosphor-dim);
+  border-color: var(--phosphor-dim);
+}
+.screen a.button:not(.button--ghost):hover,
+.marquee a.button:not(.button--ghost):hover,
+.base a.button:not(.button--ghost):hover { color: var(--screen); }
+
 /* Ghost — the secondary action. On glass it is a hairline in the screen line,
    lighting to phosphor on hover. */
 .button--ghost {

@@ -83,6 +83,9 @@ CHECKS = [
     ("secondary",    "cream-card",     "secondary on card (field hint)",  None, True),
     ("secondary",    "settled",        "secondary on settled (disabled)", None, True),
 
+    ("screen",       "phosphor",       "glass text on a phosphor fill",   None, True),
+    ("screen",       "phosphor-dim",   "glass text on phosphor-dim (hover)", None, True),
+
     # Must FAIL. These encode the absolute rules; the numbers are the assertion.
     ("phosphor",     "cream",  "phosphor on cream            [BANNED]",    1.4, False),
     # erratum: guide says 1.8, true value 1.67. Rule unchanged.
