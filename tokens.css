@@ -9,10 +9,14 @@
 
 :root {
   /* --- The four that carry the identity ------------------------------- */
-  --spruce:            #3D6B64;  /* structure + the settled register. PAPER ONLY. */
-  --clay-deep:         #9A4527;  /* the ONLY accent that acts. fills, links, urgent. */
-  --clay-deepest:      #873C21;  /* the pressed/hover state of an acting fill. Only ever
-                                    under --cream-card text; never a resting fill. */
+  /* CLAY IS ATTENTION. SPRUCE IS ACTION. Spec §6 — the assignment of meaning,
+     which is the part that had drifted, not the palette. */
+  --spruce:            #3D6B64;  /* structure, eyebrows, the settled register, button
+                                    hover. PAPER ONLY. */
+  --clay-deep:         #9A4527;  /* ATTENTION — links, alarms, the subject node. Also
+                                    the destructive fill, behind a confirmation. */
+  --clay-deepest:      #873C21;  /* the hover of a destructive fill. Only ever under
+                                    --cream-card text; never a resting fill. */
   --clay:              #BF5B3B;  /* display 24px+, borders, rules. NEVER small light text. */
   --phosphor:          #6FE3C0;  /* live figures. GLASS ONLY. */
 
@@ -21,7 +25,9 @@
   --cream-card:        #FFFDF8;  /* raised surface */
   --ink:               #262219;  /* body text */
   --secondary:         #6B6353;  /* supporting text */
-  --label:             #4E6E67;  /* THE label voice on paper — all grounds */
+  --label:             #4E6E67;  /* the label voice on paper — badges and chips. The
+                                    EYEBROW is --spruce (spec §7), which measures higher
+                                    on every paper ground; see check_contrast.py. */
 
   /* The ink ramp between --ink and --secondary. Graphr system spec §7 needs
      three steps that did not exist here, and their absence is what pushed decks
@@ -38,7 +44,7 @@
   --settled-line:      #C2D2CC;
   --unconfirmed:       #FBF3E4;  /* not yet real — dashed border */
   --unconfirmed-line:  #D9B98A;
-  --spruce-deep:       #23403C;
+  --spruce-deep:       #23403C;  /* ACTION — the primary button and the active chip */
 
   /* --- The glass: spruce at depth -------------------------------------- */
   --screen:            #0E1A18;  /* ground. inset, never floating. */
@@ -84,7 +90,12 @@
    --spruce on --screen  (2.3:1 smudge). On glass, spruce's role passes to phosphor.
    --phosphor / --phosphor-dim on paper (1.4:1 / 1.8:1 — reads as highlighter).
    --clay carrying light text at any size. Every fill at UI size is --clay-deep.
-   serif prose on glass. mono anywhere but glass. gradients. emoji.
+   serif prose on glass. gradients. emoji.
+   mono PROSE on paper. The edge label (spec §5) is the one exception and is
+     deliberate: it is a NAME, not a sentence, and setting it in the label voice
+     makes it indistinguishable from the badge sitting beside it in the same
+     row — at which point the hand-written relationship stops being the loudest
+     thing on the row, which is the one thing it must be.
    ------------------------------------------------------------------------ */
 
 /* --- The cabinet: four zones, in this order, always ---------------------- */

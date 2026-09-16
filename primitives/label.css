@@ -31,6 +31,12 @@
 .label--eyebrow {
   font-size: 11.5px;
   letter-spacing: 0.18em;
+  /* Spec § 7 sets the eyebrow in --spruce, not the --label voice. Measured, it
+     is also the higher-contrast of the two on every paper ground: 5.30 / 5.93 /
+     5.04 on cream, card and the settled tint, against --label's 4.93 / 5.51 /
+     4.69. The note on --label above — that it exists because spruce did not
+     clear everywhere — does not survive measurement. */
+  color: var(--spruce);
 }
 
 /* Urgent. Clay-deep on paper, clay-glow on glass. Not "important" — urgent. */

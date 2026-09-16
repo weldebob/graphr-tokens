@@ -86,6 +86,13 @@ CHECKS = [
     ("screen",       "phosphor",       "glass text on a phosphor fill",   None, True),
     ("screen",       "phosphor-dim",   "glass text on phosphor-dim (hover)", None, True),
 
+    # The paper action (spec §6) — spruce-deep resting, spruce on hover.
+    ("cream-card",   "spruce-deep",    "card-white on the paper button",  None, True),
+    ("cream-card",   "spruce",         "card-white on button hover",      None, True),
+    ("spruce",       "cream",          "eyebrow on cream",                None, True),
+    ("spruce",       "cream-card",     "eyebrow on card",                 None, True),
+    ("spruce",       "settled",        "eyebrow on settled tint",         None, True),
+
     # Must FAIL. These encode the absolute rules; the numbers are the assertion.
     ("phosphor",     "cream",  "phosphor on cream            [BANNED]",    1.4, False),
     # erratum: guide says 1.8, true value 1.67. Rule unchanged.
