@@ -9,10 +9,14 @@
 
 :root {
   /* --- The four that carry the identity ------------------------------- */
-  --spruce:            #3D6B64;  /* structure + the settled register. PAPER ONLY. */
-  --clay-deep:         #9A4527;  /* the ONLY accent that acts. fills, links, urgent. */
-  --clay-deepest:      #873C21;  /* the pressed/hover state of an acting fill. Only ever
-                                    under --cream-card text; never a resting fill. */
+  /* CLAY IS ATTENTION. SPRUCE IS ACTION. Spec §6 — the assignment of meaning,
+     which is the part that had drifted, not the palette. */
+  --spruce:            #3D6B64;  /* structure, eyebrows, the settled register, button
+                                    hover. PAPER ONLY. */
+  --clay-deep:         #9A4527;  /* ATTENTION — links, alarms, the subject node. Also
+                                    the destructive fill, behind a confirmation. */
+  --clay-deepest:      #873C21;  /* the hover of a destructive fill. Only ever under
+                                    --cream-card text; never a resting fill. */
   --clay:              #BF5B3B;  /* display 24px+, borders, rules. NEVER small light text. */
   --phosphor:          #6FE3C0;  /* live figures. GLASS ONLY. */
 
@@ -21,14 +25,26 @@
   --cream-card:        #FFFDF8;  /* raised surface */
   --ink:               #262219;  /* body text */
   --secondary:         #6B6353;  /* supporting text */
-  --label:             #4E6E67;  /* THE label voice on paper — all grounds */
+  --label:             #4E6E67;  /* the label voice on paper — badges and chips. The
+                                    EYEBROW is --spruce (spec §7), which measures higher
+                                    on every paper ground; see check_contrast.py. */
+
+  /* The ink ramp between --ink and --secondary. Graphr system spec §7 needs
+     three steps that did not exist here, and their absence is what pushed decks
+     and summaries onto --secondary — which is the one paper ink that must never
+     carry a sentence. Each still clears AA with room to spare on all three
+     grounds; see check_contrast.py. */
+  --ink-body:          #3A352C;  /* summaries and card body */
+  --ink-deck:          #453F31;  /* decks and subtitles — NOT --secondary */
+  --ink-hint:          #4A4437;  /* field hints and disclaimers */
+
   --line:              #E3DCCC;  /* hairline */
   --divider:           #EFE9DB;
   --settled:           #E4EDE8;  /* filed / agreed — solid border */
   --settled-line:      #C2D2CC;
   --unconfirmed:       #FBF3E4;  /* not yet real — dashed border */
   --unconfirmed-line:  #D9B98A;
-  --spruce-deep:       #23403C;
+  --spruce-deep:       #23403C;  /* ACTION — the primary button and the active chip */
 
   /* --- The glass: spruce at depth -------------------------------------- */
   --screen:            #0E1A18;  /* ground. inset, never floating. */
@@ -40,7 +56,12 @@
   /* --- Type ------------------------------------------------------------ */
   --font-display: 'Newsreader', Georgia, serif;      /* headlines + human moments */
   --font-ui:      'Figtree', system-ui, sans-serif;  /* everything functional */
-  --font-readout: ui-monospace, SFMono-Regular, Menlo, monospace; /* GLASS ONLY */
+  /* GLASS ONLY. The face is pinned, not left to the platform: a system stack is
+     a fair trade for body text and a bad one for display figures, because the
+     figure IS the graphic and it was rendering as a different typeface for
+     every visitor. Decided 15 Sep 2026 by Bob — Graphr system spec §7, v1.1.
+     The system stack stays as the fallback tail. */
+  --font-readout: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* The label voice, at the values the canonical artifact actually sets. 10px
      remains the absolute floor; 10.5 is where the artifact sits, and matching it
@@ -69,7 +90,12 @@
    --spruce on --screen  (2.3:1 smudge). On glass, spruce's role passes to phosphor.
    --phosphor / --phosphor-dim on paper (1.4:1 / 1.8:1 — reads as highlighter).
    --clay carrying light text at any size. Every fill at UI size is --clay-deep.
-   serif prose on glass. mono anywhere but glass. gradients. emoji.
+   serif prose on glass. gradients. emoji.
+   mono PROSE on paper. The edge label (spec §5) is the one exception and is
+     deliberate: it is a NAME, not a sentence, and setting it in the label voice
+     makes it indistinguishable from the badge sitting beside it in the same
+     row — at which point the hand-written relationship stops being the loudest
+     thing on the row, which is the one thing it must be.
    ------------------------------------------------------------------------ */
 
 /* --- The cabinet: four zones, in this order, always ---------------------- */

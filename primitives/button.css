@@ -5,8 +5,20 @@
  * voice. Uppercase letterspaced 10px is for naming a thing, not for asking
  * someone to do one.
  *
- * --clay-deep is the one accent that acts, and the primary button is the one
- * clay thing on a view. --spruce is NEVER a button. */
+ * THE COLOUR LAW (Graphr system spec § 6): CLAY IS ATTENTION, SPRUCE IS ACTION.
+ * The primary button is therefore spruce-deep on paper and phosphor on glass,
+ * and clay is left to the things that want noticing — links, overdue badges,
+ * the subject node.
+ *
+ * This file used to say the opposite: that clay-deep was the one accent that
+ * acts and spruce was never a button. That held when clay was the only accent
+ * in the system, and it is what left clay meaning "go here", "this is broken"
+ * and "press this" at the same time — six meanings, which is no meaning. The
+ * spec resolved it; this is that resolution.
+ *
+ * Destructive is the one place attention and action legitimately overlap: it
+ * stays clay, and only ever behind a confirmation step, because destruction IS
+ * an alarm. */
 
 .button {
   font: inherit;
@@ -15,9 +27,9 @@
   font-weight: 650;
   min-height: var(--hit-target);
   padding: 12px 20px;
-  border: 1px solid var(--clay-deep);
+  border: 1px solid var(--spruce-deep);
   border-radius: var(--radius-paper);
-  background: var(--clay-deep);
+  background: var(--spruce-deep);
   color: var(--cream-card);
   box-shadow: var(--shadow);             /* none — there are no soft shadows */
   cursor: pointer;
@@ -27,8 +39,10 @@
   justify-content: center;
 }
 
-/* The pressed/hover state of an acting fill — a token, not a filter. */
-.button:hover { background: var(--clay-deepest); border-color: var(--clay-deepest); }
+/* The hover state of an acting fill — a token, not a filter. It steps LIGHTER,
+   which is the same direction the glass button takes (phosphor → phosphor-dim),
+   so the two surfaces behave alike under the cursor. 5.9:1, still clear. */
+.button:hover { background: var(--spruce); border-color: var(--spruce); }
 
 /* An anchor styled as a button is still a button. A page-level link colour —
    e.g. `.base a { color: var(--clay-glow) }` — is more specific than `.button`
@@ -36,6 +50,41 @@
    2.6:1. These selectors match that specificity so the fill keeps its text. */
 a.button { color: var(--cream-card); }
 a.button:hover { color: var(--cream-card); }
+
+/* ON GLASS THE PRIMARY ACTION IS PHOSPHOR.
+ *
+ * Graphr system spec § 6: clay is attention, spruce is action, and phosphor is
+ * spruce's counterpart on glass. A clay fill in a glass zone says "alarm" in the
+ * one place the view is asking someone to proceed — and it puts the accent that
+ * marks a problem on the control that resolves one.
+ *
+ * NOTE THE LIMIT. This changes the button on GLASS only. Spec § 6 also makes the
+ * paper button spruce, which contradicts what this file says two comments up —
+ * that clay-deep is the one accent that acts and spruce is never a button. That
+ * is a real disagreement between the spec and this layer, it repaints a primary
+ * action in all three products, and it is Bob's to settle rather than a session's
+ * to assume. On glass there is no such conflict: the spec and the site handoff
+ * agree, and the clay fill was never right there. */
+.screen .button:not(.button--ghost),
+.marquee .button:not(.button--ghost),
+.base .button:not(.button--ghost) {
+  background: var(--phosphor);
+  border-color: var(--phosphor);
+  color: var(--screen);
+}
+.screen a.button:not(.button--ghost),
+.marquee a.button:not(.button--ghost),
+.base a.button:not(.button--ghost) { color: var(--screen); }
+
+.screen .button:not(.button--ghost):hover,
+.marquee .button:not(.button--ghost):hover,
+.base .button:not(.button--ghost):hover {
+  background: var(--phosphor-dim);
+  border-color: var(--phosphor-dim);
+}
+.screen a.button:not(.button--ghost):hover,
+.marquee a.button:not(.button--ghost):hover,
+.base a.button:not(.button--ghost):hover { color: var(--screen); }
 
 /* Ghost — the secondary action. On glass it is a hairline in the screen line,
    lighting to phosphor on hover. */
@@ -63,3 +112,17 @@ a.button--ghost:hover { color: var(--phosphor); }
   border-color: var(--clay-deep);
   color: var(--clay-deep);
 }
+
+/* Destructive — dissolve, delete. The one place attention and action overlap,
+   and acceptable only because destruction is itself an alarm. Spec § 6 requires
+   a confirmation step with it; a bare .button--destructive is a bug. */
+.button--destructive {
+  background: var(--clay-deep);
+  border-color: var(--clay-deep);
+  color: var(--cream-card);
+}
+.button--destructive:hover {
+  background: var(--clay-deepest);
+  border-color: var(--clay-deepest);
+}
+a.button--destructive, a.button--destructive:hover { color: var(--cream-card); }

@@ -72,12 +72,16 @@
 .field--narrow select { max-width: 320px; }
 
 /* The hint carries provenance — where a figure came from, and what it does not
- * cover. It annotates rather than being read in sentences, so --secondary is
- * the right voice here (see THE READING RULE). */
+ * cover. It was --secondary at 12.5px on the reasoning that it annotates rather
+ * than being read; that reasoning was wrong in practice. A hint is the one place
+ * a person reads a SENTENCE while deciding what to type, and at 12.5px in the
+ * tertiary ink it was the hardest text on a tool page. Graphr system spec §7
+ * sets it at 14.5px/1.55 in --ink-hint, which is the shared value, not a
+ * site preference. --secondary keeps its job: dates and tertiary only. */
 .field .hint {
-  font-size: 12.5px;
-  line-height: 1.4;
-  color: var(--secondary);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-hint);
   margin-top: 5px;
 }
 .field .hint a { color: var(--clay-deep); }

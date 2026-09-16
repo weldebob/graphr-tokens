@@ -63,6 +63,17 @@ CHECKS = [
     ("clay-glow",    "screen",         "clay-glow on glass",               7.2, True),
     ("cream",        "screen",         "cream on glass",                  15.7, True),
 
+    # The ink ramp (spec §7). The guide quotes deck 7.9:1, body 9.6:1 and hint
+    # 7.1:1; all three measure HIGHER here, so the guide is conservative and
+    # every pair clears with room. Carrying None rather than the guide's number
+    # keeps this table honest about what it actually asserts.
+    ("ink-body",     "cream",          "ink-body on cream",               None, True),
+    ("ink-body",     "cream-card",     "ink-body on card",                None, True),
+    ("ink-deck",     "cream",          "ink-deck on cream (deck)",        None, True),
+    ("ink-deck",     "cream-card",     "ink-deck on card (deck)",         None, True),
+    ("ink-hint",     "cream",          "ink-hint on cream",               None, True),
+    ("ink-hint",     "cream-card",     "ink-hint on card (field hint)",   None, True),
+
     # Added by primitives/ — pairs the components actually rely on.
     ("ink",          "cream-card",     "ink on card (card body)",         None, True),
     ("ink",          "settled",        "ink on settled tint (card)",      None, True),
@@ -71,6 +82,16 @@ CHECKS = [
     ("phosphor",     "screen-raised",  "phosphor on track (meter fill)",  None, True),
     ("secondary",    "cream-card",     "secondary on card (field hint)",  None, True),
     ("secondary",    "settled",        "secondary on settled (disabled)", None, True),
+
+    ("screen",       "phosphor",       "glass text on a phosphor fill",   None, True),
+    ("screen",       "phosphor-dim",   "glass text on phosphor-dim (hover)", None, True),
+
+    # The paper action (spec §6) — spruce-deep resting, spruce on hover.
+    ("cream-card",   "spruce-deep",    "card-white on the paper button",  None, True),
+    ("cream-card",   "spruce",         "card-white on button hover",      None, True),
+    ("spruce",       "cream",          "eyebrow on cream",                None, True),
+    ("spruce",       "cream-card",     "eyebrow on card",                 None, True),
+    ("spruce",       "settled",        "eyebrow on settled tint",         None, True),
 
     # Must FAIL. These encode the absolute rules; the numbers are the assertion.
     ("phosphor",     "cream",  "phosphor on cream            [BANNED]",    1.4, False),

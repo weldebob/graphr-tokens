@@ -20,6 +20,9 @@ module.exports = {
         cream:            'var(--cream)',
         'cream-card':     'var(--cream-card)',
         ink:              'var(--ink)',
+        'ink-body':       'var(--ink-body)',    // summaries and card body
+        'ink-deck':       'var(--ink-deck)',    // decks — never --secondary
+        'ink-hint':       'var(--ink-hint)',    // field hints
         secondary:        'var(--secondary)',
         label:            'var(--label)',
         line:             'var(--line)',
@@ -41,7 +44,7 @@ module.exports = {
       fontFamily: {
         display: ['Newsreader', 'Georgia', 'serif'],
         ui:      ['Figtree', 'system-ui', 'sans-serif'],
-        readout: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        readout: ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
 
       /* floors. neither voice goes below 10px. */
