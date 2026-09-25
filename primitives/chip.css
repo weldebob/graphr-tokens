@@ -23,7 +23,7 @@
   font-variant-numeric: tabular-nums;
   color: var(--phosphor);
   font-size: 15.5px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0;
 }
 
@@ -35,7 +35,7 @@
   font-variant-numeric: tabular-nums;
   color: var(--phosphor-dim);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* Urgent — the figure that moved the wrong way. */
