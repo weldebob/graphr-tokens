@@ -17,6 +17,10 @@
                                     the destructive fill, behind a confirmation. */
   --clay-deepest:      #873C21;  /* the hover of a destructive fill. Only ever under
                                     --cream-card text; never a resting fill. */
+  --clay-hover:        #7F3A20;  /* the hover of ANY clay link, including the edge
+                                    row's object name. Spec v3.13 §14 named it:
+                                    link hovers had been borrowing --clay-deepest,
+                                    which is a destructive fill and never a link. */
   --clay:              #BF5B3B;  /* display 24px+, borders, rules. NEVER small light text. */
   --phosphor:          #6FE3C0;  /* live figures. GLASS ONLY. */
 
@@ -61,7 +65,7 @@
      figure IS the graphic and it was rendering as a different typeface for
      every visitor. Decided 15 Sep 2026 by Bob — Graphr system spec §7, v1.1.
      The system stack stays as the fallback tail. */
-  --font-readout: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-readout: 'IBM Plex Mono', ui-monospace, Menlo, SFMono-Regular, monospace;
 
   /* The label voice, at the values the canonical artifact actually sets. 10px
      remains the absolute floor; 10.5 is where the artifact sits, and matching it

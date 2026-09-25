@@ -55,6 +55,8 @@ CHECKS = [
     ("label",        "cream-card",     "label on card",                    5.5, True),
     ("label",        "settled",        "label on settled tint",           None, True),
     ("clay-deep",    "cream",          "clay-deep on cream",               5.7, True),
+    ("clay-hover",   "cream",          "clay-hover on cream (link hover)", None, True),
+    ("clay-hover",   "cream-card",     "clay-hover on paper (link hover)", None, True),
     ("cream-card",   "clay-deep",      "card-white on clay-deep fill",     6.3, True),
     ("cream-card",   "clay-deepest",   "card-white on clay-deepest (hover)", None, True),
     ("phosphor",     "screen",         "phosphor on glass",               11.4, True),
