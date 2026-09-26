@@ -22,7 +22,17 @@
   font-family: var(--font-readout);
   font-variant-numeric: tabular-nums;
   color: var(--phosphor);
-  font-size: 15.5px;
+  /* 16.5px, raised from 15.5px. The suffix went to 14px to clear the ink floor,
+     which flattened the value/suffix step from 1.192x to 1.107x and stopped the
+     figure leading. Measured in cap height, IBM Plex Mono 700: 16.5px gives
+     12.028px against the suffix's 10.206px, a 1.179x step — the original within
+     1%. 16.5px is already the house card/summary size, so it is not a new
+     number in the scale.
+
+     THE DIRECTION MATTERS. A hierarchy is restored by raising the larger
+     element, never by taking the smaller one back under the floor. If this ever
+     needs opening further, 17px is 1.214x. */
+  font-size: 16.5px;
   font-weight: 700;
   letter-spacing: 0;
 }
