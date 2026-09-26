@@ -30,7 +30,9 @@
 
 .base__note {
   color: var(--phosphor-dim);
-  font-size: 13px;
+  /* 13px was 0.93x the floor. Lowercase reading text on glass is still reading
+     text. */
+  font-size: 14px;
   flex: 1;
   min-width: 180px;
 }
