@@ -34,7 +34,15 @@
      reason the value does. Spec §7: every mono figure, no exceptions. */
   font-variant-numeric: tabular-nums;
   color: var(--phosphor-dim);
-  font-size: 13px;
+  /* The suffix carries WORDS as often as figures — "Added every month" — and at
+     13px their x-height is 7.00px against the floor's 7.66px, 0.91x. Its
+     figures were fine at 13px (9.00px cap, 1.17x); the same declaration was
+     compliant in one use and not the other, which is the units bug in
+     miniature. 14px clears both.
+     NOTE the cost: the value above is 15.5px, so raising the suffix narrows the
+     value/suffix step from 1.19x to 1.11x. If that hierarchy needs restoring,
+     raise the VALUE — never take the suffix back under the floor. */
+  font-size: 14px;
   font-weight: 700;
 }
 

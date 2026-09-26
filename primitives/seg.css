@@ -14,7 +14,9 @@
 .seg button {
   font: inherit;
   font-family: var(--font-ui);
-  font-size: 13.5px;
+  /* 13.5px was 0.96x the floor — near enough to look right, under it all the
+     same. */
+  font-size: 14px;
   font-weight: 550;
   min-height: var(--hit-target);
   padding: 9px 14px;
@@ -37,7 +39,12 @@
 
 .seg .sub {
   display: block;
-  font-size: 11px;
+  /* 14px: at 11px this line's x-height is 6.02px against the floor's 7.66px —
+     0.79x, the worst miss in the layer. Lowercase, so both readings of the
+     floor agree on the target. The label above it is the same size now; if the
+     two need separating again, do it with weight or opacity, not by going back
+     under the floor. */
+  font-size: 14px;
   font-weight: 500;
   opacity: 0.72;
   margin-top: 1px;
