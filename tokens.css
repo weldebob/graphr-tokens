@@ -43,6 +43,9 @@
   --ink-hint:          #4A4437;  /* field hints and disclaimers */
 
   --line:              #E3DCCC;  /* hairline */
+  --border-strong:     #D8D2C4;  /* the firmer paper border — spec §14 "border-strong";
+                                    also the AI-off state on the account page (Design,
+                                    RESPONSE-admin-2026-10-02 §3). A border, never text. */
   --divider:           #EFE9DB;
   --settled:           #E4EDE8;  /* filed / agreed — solid border */
   --settled-line:      #C2D2CC;
@@ -67,10 +70,11 @@
      The system stack stays as the fallback tail. */
   --font-readout: 'IBM Plex Mono', ui-monospace, Menlo, SFMono-Regular, monospace;
 
-  /* The label voice, at the values the canonical artifact actually sets. 10px
-     remains the absolute floor; 10.5 is where the artifact sits, and matching it
-     is what lets a consuming page drop its own copy of this rule. */
-  --label-size:   10.5px; /* 10px is the floor. never lower. */
+  /* The label voice. Graphr spec §14, "The type floor, settled" (v3.20, kept in
+     v3.28): all-caps tracked labels are 11px minimum, weight 600 or more at 11–12px,
+     letter-spacing 0.08em or more. The old 10.5 sat under that floor; Design set
+     11px in RESPONSE-admin-2026-10-02 §2, and Docket commits it (spec + tokens home). */
+  --label-size:   11px;   /* the spec floor. never lower. */
   --ui-size-min:  12px;   /* floor. never lower. */
   --label-track:  0.16em; /* range 0.14–0.22em */
 
