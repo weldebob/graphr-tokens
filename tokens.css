@@ -75,7 +75,7 @@
      letter-spacing 0.08em or more. The old 10.5 sat under that floor; Design set
      11px in RESPONSE-admin-2026-10-02 §2, and Docket commits it (spec + tokens home). */
   --label-size:   11px;   /* the spec floor. never lower. */
-  --ui-size-min:  12px;   /* floor. never lower. */
+  --ui-size-min:  14px;   /* sentence text, spec §14: 14px, no exceptions. never lower. */
   --label-track:  0.16em; /* range 0.14–0.22em */
 
   /* --- Shape ----------------------------------------------------------- */
