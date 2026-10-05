@@ -47,11 +47,12 @@ module.exports = {
         readout: ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
 
-      /* floors. neither voice goes below 10px. */
+      /* floors, spec §14: capitals labels 11px, sentence text 14px. Same values as
+         --label-size and --ui-size-min in tokens.css. */
       fontSize: {
-        label:   ['10px', { lineHeight: '1', letterSpacing: '0.18em' }],
+        label:   ['11px', { lineHeight: '1', letterSpacing: '0.18em' }],
         readout: ['10px', { lineHeight: '1.2' }],
-        ui:      ['12px', { lineHeight: '1.5' }],
+        ui:      ['14px', { lineHeight: '1.5' }],
       },
 
       letterSpacing: { label: '0.18em' },
